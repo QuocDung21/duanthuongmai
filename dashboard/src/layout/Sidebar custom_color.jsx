@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { getNavs } from "../navigation/index";
 import { BiLogInCircle } from "react-icons/bi";
 import { baseURL } from "../utils/utils";
-import { toast } from "react-hot-toast";
 const Sidebar = ({ showSidebar, setShowSidebar }) => {
   const { role } = useSelector((state) => state.auth);
   const { pathname } = useLocation();
@@ -13,10 +12,9 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
     const navs = getNavs(role);
     setAllNav(navs);
   }, [role]);
-  const hanldeLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("token");
     setShowSidebar(false);
-    toast.success("Đăng xuất");
     window.location.href = `${baseURL}login`;
   };
   return (
@@ -28,14 +26,14 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
         } w-screen h-screen bg-[#22292f80] top-0 left-0 z-10`}
       ></div>
       <div
-        className={`w-[260px] fixed bg-[#283046] z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${
+        className={`w-[260px] fixed bg-bgCl_Nav_1 z-50 top-0 h-screen shadow-[0_0_15px_0_rgb(34_41_47_/_5%)] transition-all ${
           showSidebar ? "left-0" : "-left-[260px] lg:left-0"
         }`}
       >
-        <div className="h-[70px] flex justify-center items-center mt-12">
-          <Link to="/" className="w-[140px] h-[140px] pt-1">
+        <div className="h-[70px] flex justify-center items-center mt-10   ">
+          <Link to="/" className="w-[200px] h-[120px] p-2">
             <img
-              className="w-full h-full object-conver rounded-full "
+              className="w-full h-full object-conver rounded-7  rounded"
               src={baseURL + "/images/logo4.png"}
               alt=""
             />
@@ -49,8 +47,8 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
                   to={n.path}
                   className={`${
                     pathname === n.path
-                      ? "bg-slate-600 shadow-indigo-500/30 text-white duration-500 "
-                      : "text-[#d0d2d6] font-normal duration-200"
+                      ? "bg-bgCl_Nav_2 shadow-indigo-500/30 text-textCl_2_NavHover duration-500 "
+                      : "text-textCl_2_Nav font-normal duration-200"
                   } px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1 `}
                 >
                   <span>{n.icon}</span>
@@ -59,11 +57,11 @@ const Sidebar = ({ showSidebar, setShowSidebar }) => {
               </li>
             ))}
             <li>
-              <button className="text-[#d0d2d6] font-normal duration-200 px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1 ">
+              <button className="text-textCl_2_Nav font-normal duration-200 px-[12px] py-[9px] rounded-sm flex justify-start items-center gap-[12px] hover:pl-4 transition-all w-full mb-1 ">
                 <span>
                   <BiLogInCircle />
                 </span>
-                <span onClick={hanldeLogout}>Đăng xuất</span>
+                <span onClick={handleLogout}>Đăng xuất</span>
               </button>
             </li>
           </ul>

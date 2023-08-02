@@ -1,14 +1,14 @@
 import React from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { RiProductHuntLine } from "react-icons/ri";
+import { FaUsers } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import Chart from "react-apexcharts";
-import { baseURL } from "../../utils/utils";
-const SellerDashboard = () => {
+const AdminDashboard = () => {
   const state = {
     series: [
-      {
+      { 
         name: "Orders",
         data: [34, 65, 34, 65, 34, 34, 34, 56, 23, 67, 23, 45],
       },
@@ -17,7 +17,7 @@ const SellerDashboard = () => {
         data: [34, 32, 45, 32, 34, 34, 43, 56, 65, 67, 45, 78],
       },
       {
-        name: "Seles",
+        name: "Sellers",
         data: [78, 32, 34, 54, 65, 34, 54, 21, 54, 43, 45, 43],
       },
     ],
@@ -117,16 +117,16 @@ const SellerDashboard = () => {
         <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
           <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
             <h2 className="text-3xl font-bold">50</h2>
-            <span className="text-md font-medium">Orders</span>
+            <span className="text-md font-medium">Sellers</span>
           </div>
           <div className="w-[46px] h-[47px] rounded-full bg-[#00cfe81f] flex justify-center items-center text-xl">
-            <AiOutlineShoppingCart className="text-[#00cfe8] shadow-lg" />
+            <FaUsers className="text-[#00cfe8] shadow-lg" />
           </div>
         </div>
         <div className="flex justify-between items-center p-5 bg-[#283046] rounded-md gap-3">
           <div className="flex flex-col justify-start items-start text-[#d0d2d6]">
             <h2 className="text-3xl font-bold">12</h2>
-            <span className="text-md font-medium">Pending orders</span>
+            <span className="text-md font-medium">Orders</span>
           </div>
           <div className="w-[46px] h-[47px] rounded-full bg-[#7367f01f] flex justify-center items-center text-xl">
             <AiOutlineShoppingCart className="text-[#7367f0] shadow-lg" />
@@ -148,7 +148,7 @@ const SellerDashboard = () => {
           <div className="w-full bg-[#283046] p-4 rounded-md text-[#d0d2d6]">
             <div className="flex justify-between items-center">
               <h2 className="font-semibold text-lg text-[#d0d2d6] pb-3">
-                Recent customer message
+                Recent seller message
               </h2>
               <Link className="font-semibold text-sm text-[#d0d2d6]">
                 View All
@@ -160,13 +160,13 @@ const SellerDashboard = () => {
                   <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
                     <img
                       className="w-full rounded-full h-full shadow-lg"
-                      src={baseURL + "/images/admin.jpg"}
+                      src="http://localhost:3000/images/admin.jpg"
                       alt=""
                     />
                   </div>
                   <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Customer Name</Link>
+                      <Link className="text-md font-normal">Admin</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>
@@ -180,13 +180,13 @@ const SellerDashboard = () => {
                   <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
                     <img
                       className="w-full rounded-full h-full shadow-lg"
-                      src={baseURL + "/images/admin.jpg"}
+                      src="http://localhost:3000/images/admin.jpg"
                       alt=""
                     />
                   </div>
                   <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Seller Name</Link>
+                      <Link className="text-md font-normal">Admin</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>
@@ -200,13 +200,13 @@ const SellerDashboard = () => {
                   <div className="flex absolute -left-5 shadow-lg justify-center items-center w-10 h-10 p-[6px] bg-[#00d1e848] rounded-full z-10">
                     <img
                       className="w-full rounded-full h-full shadow-lg"
-                      src={baseURL + "/images/admin.jpg"}
+                      src="http://localhost:3000/images/admin.jpg"
                       alt=""
                     />
                   </div>
                   <div className="p-3 bg-slate-800 rounded-lg border border-slate-600 shadow-sm">
                     <div className="flex justify-between items-center mb-2">
-                      <Link className="text-md font-normal">Seller Name</Link>
+                      <Link className="text-md font-normal">Admin</Link>
                       <time className="mb-1 text-sm font-normal sm:order-last sm:mb-0">
                         4 day ago
                       </time>
@@ -292,4 +292,4 @@ const SellerDashboard = () => {
   );
 };
 
-export default SellerDashboard;
+export default AdminDashboard;
